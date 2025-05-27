@@ -32,4 +32,4 @@ jobs:
       # Step 5: Test the running container
       - name: Test container
         run: |
-          curl -I http://localhost:8080
+          curl -L http://localhost:8080
