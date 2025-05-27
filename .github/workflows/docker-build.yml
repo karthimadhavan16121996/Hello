@@ -23,3 +23,13 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t nginx-sample .
+
+      # Step 4: Run the Docker container
+      - name: Run Docker container
+        run: |
+          docker run -d -p 8080:80 --name nginx-container nginx-sample
+
+      # Step 5: Test the running container
+      - name: Test container
+        run: |
+          curl -I http://localhost:8080
