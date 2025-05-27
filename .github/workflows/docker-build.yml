@@ -32,4 +32,5 @@ jobs:
       # Step 5: Test the running container
       - name: Test container
         run: |
-          curl -L http://localhost:8080
+          curl -I http://localhost:8080
+          docker exec nginx-container cat /usr/share/nginx/html/index.html
