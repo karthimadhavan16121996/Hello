@@ -1,8 +1,14 @@
-# Use the official Nginx image as the base image
-FROM nginx:latest
+# Use an official OpenJDK runtime as the base image
+FROM openjdk:17
 
-# Copy custom static HTML files to the Nginx default directory
-COPY index.html /usr/share/nginx/html/index.html
+# Set the working directory inside the container
+WORKDIR /app
 
-# Expose the Nginx default port
-EXPOSE 80
+# Copy the Java source file into the container
+COPY LibraryManagementSystem.java .
+
+# Compile the Java source file
+RUN javac LibraryManagementSystem.java
+
+# Command to run the application
+CMD ["java", "LibraryManagementSystem"]
