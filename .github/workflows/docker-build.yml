@@ -39,6 +39,4 @@ jobs:
     - name: Run Docker Container
       run: |
         echo "Testing the Docker container..."
-        docker run -it library-management-system <<EOF
-        5
-        EOF
+        echo "5" | docker run library-management-system
